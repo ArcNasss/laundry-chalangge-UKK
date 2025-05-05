@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-
+use App\Models\NonMember;
 class Transaction extends Model
 {
     protected $fillable = [
@@ -47,4 +47,10 @@ class Transaction extends Model
     {
         return $this->total_harga - ($this->total_harga * $this->diskon / 100);
     }
+
+    public function nonMember()
+{
+    return $this->belongsTo(NonMember::class);
+}
+
 }

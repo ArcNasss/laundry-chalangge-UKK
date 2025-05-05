@@ -17,7 +17,7 @@ return new class extends Migration
         $table->foreignId('member_id');
         $table->string('invoice_code');
         $table->enum('status',['baru','proses','selesai','belum_dibayar']);
-        
+
         $table->date('tanggal');
         $table->date('batas_waktu')->nullable();
         $table->enum('dibayar',['lunas','belum_dibayar']);

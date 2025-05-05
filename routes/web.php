@@ -22,9 +22,9 @@ Route::post('/logout', [App\Http\Controllers\Auth\MemberLoginController::class, 
 // Protected Routes
 Route::middleware('auth:member')->group(function() {
     Route::get('/member/dashboard', function() {
-        return view('member.dashboard');
+        return view('member.transaction.index');
     })->name('member.dashboard');
-    
+
     Route::middleware(['auth:member'])->group(function () {
     Route::get('/member/transaction', [TransactionController::class, 'index'])->name('member.transaction.index');
 });
@@ -59,10 +59,10 @@ Route::middleware(['auth'])->group(function () {
         // Routes untuk download transaksi
         Route::get('/transactions/download/{transaction}', [TransactionController::class, 'downloadSingle'])
             ->name('admin.transactions.download.single');
-            
+
         Route::get('/transactions/download-form', [TransactionController::class, 'downloadForm'])
             ->name('admin.transactions.download.form');
-            
+
         Route::get('/transactions/download-all', [TransactionController::class, 'downloadAll'])
             ->name('admin.transactions.download.all');
     });
@@ -76,3 +76,4 @@ Route::middleware(['auth:member'])->group(function () {
             ->name('member.transactions.download.proof');
     });
 });
+

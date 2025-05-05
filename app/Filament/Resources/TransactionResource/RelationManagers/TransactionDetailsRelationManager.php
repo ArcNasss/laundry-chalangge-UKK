@@ -31,7 +31,7 @@ class TransactionDetailsRelationManager extends RelationManager
                     }
                 })
                 ->columnSpan(2),
-                
+
             Forms\Components\TextInput::make('qty')
                 ->label('Quantity')
                 ->numeric()
@@ -41,21 +41,21 @@ class TransactionDetailsRelationManager extends RelationManager
                 ->afterStateUpdated(function ($state, Forms\Set $set, Forms\Get $get) {
                     $set('subtotal', $get('harga_satuan') * $state);
                 }),
-                
+
             Forms\Components\TextInput::make('harga_satuan')
                 ->label('Harga Satuan')
                 ->numeric()
                 ->disabled()
                 ->dehydrated()
                 ->formatStateUsing(fn ($state) => number_format($state, 0, ',', '.')),
-                
+
             Forms\Components\TextInput::make('subtotal')
                 ->label('Subtotal')
                 ->numeric()
                 ->disabled()
                 ->dehydrated()
                 ->formatStateUsing(fn ($state) => number_format($state, 0, ',', '.')),
-                
+
             Forms\Components\Textarea::make('keterangan_diskon')
                 ->label('Keterangan Diskon')
                 ->columnSpanFull()
@@ -72,7 +72,7 @@ class TransactionDetailsRelationManager extends RelationManager
                     ->label('Paket')
                     ->sortable()
                     ->searchable(),
-                    
+
                 Tables\Columns\TextColumn::make('package.jenis')
                     ->label('Jenis')
                     ->badge()
@@ -83,24 +83,24 @@ class TransactionDetailsRelationManager extends RelationManager
                         'kaos' => 'danger',
                         default => 'gray',
                     }),
-                    
+
                 Tables\Columns\TextColumn::make('harga_satuan')
                     ->label('Harga Satuan')
                     ->numeric()
                     ->money('IDR')
                     ->sortable(),
-                    
+
                 Tables\Columns\TextColumn::make('qty')
                     ->label('Qty')
                     ->numeric()
                     ->sortable(),
-                    
+
                 Tables\Columns\TextColumn::make('subtotal')
                     ->label('Subtotal')
                     ->numeric()
                     ->money('IDR')
                     ->sortable(),
-                    
+
                 Tables\Columns\TextColumn::make('keterangan_diskon')
                     ->label('Keterangan Diskon')
                     ->limit(30)
@@ -144,6 +144,6 @@ class TransactionDetailsRelationManager extends RelationManager
             ]);
     }
 
-    
+
 }
 
