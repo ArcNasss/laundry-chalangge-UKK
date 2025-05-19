@@ -67,7 +67,8 @@
             <th>Outlet</th>
             <td>{{ $transaction->outlet->name }}</td>
             <th>Member</th>
-            <td>{{ $transaction->member->nama }}</td>
+            <td>{{ $transaction->member?->nama ?? '-' }}</td>
+
         </tr>
     </table>
 
@@ -108,6 +109,7 @@
     <div class="footer">
         <p>Terima kasih telah menggunakan layanan kami</p>
         <p>Hubungi kami di: 0812-3456-7890</p>
+        <p>barang yang tidak diambil lebih dari 26 hari bukan tanggung jawab kami</p>
     </div>
 </body>
 

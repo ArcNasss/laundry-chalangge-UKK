@@ -52,10 +52,15 @@ class TransactionResource extends Resource
                     }),
 
                     Forms\Components\TextInput::make('non_member_name')
-                    ->label('Nama Non-Member')
-                    ->required(fn ($get) => $get('is_non_member'))
-                    ->visible(fn ($get) => $get('is_non_member'))
-                    ->dehydrated(fn ($get) => $get('is_non_member')),
+    ->label('Nama Non-Member')
+    ->required(fn ($get) => $get('is_non_member'))
+    ->visible(fn ($get) => $get('is_non_member'))
+    ->dehydrated(fn ($get) => $get('is_non_member'))
+    ->hiddenLabel(), // optional: hanya untuk styling
+                Forms\Components\TextInput::make('non_member_id')
+                    ->label('Non-Member ID')
+                    ->dehydrated()
+                    ->hidden(),
 
 
 

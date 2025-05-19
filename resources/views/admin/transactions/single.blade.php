@@ -57,7 +57,7 @@
 
     <div class="details">
         <p><strong>Outlet:</strong> {{ $transaction->outlet->name }}</p>
-        <p><strong>Member:</strong> {{ $transaction->member->nama }}</p>
+        <p><strong>Member:</strong> {{ $transaction->member->nama ?? "-" }}</p>
         <p><strong>Tanggal:</strong> {{ $transaction->tanggal->format('d/m/Y') }}</p>
         <p><strong>Batas Waktu:</strong> {{ $transaction->batas_waktu->format('d/m/Y') }}</p>
         <p><strong>Status:</strong> {{ ucfirst($transaction->status) }}</p>
@@ -97,6 +97,8 @@
 
     <div class="footer">
         <p>Terima kasih telah menggunakan layanan kami</p>
+        <p>Hubungi kami di: 0812-3456-7890</p>
+         <p>barang yang tidak diambil lebih dari 26 hari bukan tanggung jawab kami</p>
     </div>
 </body>
 
